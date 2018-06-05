@@ -19,42 +19,26 @@
 # 
 # We assume that you are already familiar with `numpy` and/or have completed the previous courses of the specialization. Let's get started!
 
-# Let's first import all the packages that you will need during this assignment.
-
 import numpy as np
 from rnn_utils import *
-
-
 # ## 1 - Forward propagation for the basic Recurrent Neural Network
-# 
-# Later this week, you will generate music using an RNN. The basic RNN that you will implement has the structure below. In this example, $T_x = T_y$. 
-
+#now, we will generate music using an RNN. The basic RNN that you will implement has the structure below. In this example, $T_x = T_y$. 
 # <img src="images/RNN.png" style="width:500;height:300px;">
 # <caption><center> **Figure 1**: Basic RNN model </center></caption>
-
 # Here's how you can implement an RNN: 
-# 
 # **Steps**:
 # 1. Implement the calculations needed for one time-step of the RNN.
 # 2. Implement a loop over $T_x$ time-steps in order to process all the inputs, one at a time. 
-# 
-# Let's go!
-# 
 # ## 1.1 - RNN cell
-# 
 # A Recurrent neural network can be seen as the repetition of a single cell. You are first going to implement the computations for a single time-step. The following figure describes the operations for a single time-step of an RNN cell. 
-# 
 # <img src="images/rnn_step_forward.png" style="width:700px;height:300px;">
 # <caption><center> **Figure 2**: Basic RNN cell. Takes as input $x^{\langle t \rangle}$ (current input) and $a^{\langle t - 1\rangle}$ (previous hidden state containing information from the past), and outputs $a^{\langle t \rangle}$ which is given to the next RNN cell and also used to predict $y^{\langle t \rangle}$ </center></caption>
-# 
 # **Exercise**: Implement the RNN-cell described in Figure (2).
-# 
 # **Instructions**:
 # 1. Compute the hidden state with tanh activation: $a^{\langle t \rangle} = \tanh(W_{aa} a^{\langle t-1 \rangle} + W_{ax} x^{\langle t \rangle} + b_a)$.
 # 2. Using your new hidden state $a^{\langle t \rangle}$, compute the prediction $\hat{y}^{\langle t \rangle} = softmax(W_{ya} a^{\langle t \rangle} + b_y)$. We provided you a function: `softmax`.
 # 3. Store $(a^{\langle t \rangle}, a^{\langle t-1 \rangle}, x^{\langle t \rangle}, parameters)$ in cache
 # 4. Return $a^{\langle t \rangle}$ , $y^{\langle t \rangle}$ and cache
-# 
 # We will vectorize over $m$ examples. Thus, $x^{\langle t \rangle}$ will have dimension $(n_x,m)$, and $a^{\langle t \rangle}$ will have dimension $(n_a,m)$. 
 
 def rnn_cell_forward(xt, a_prev, parameters):
@@ -1714,15 +1698,3 @@ print("gradients[\"dbo\"].shape =", gradients["dbo"].shape)
 #         </td>
 #     </tr>
 # </table>
-
-# ### Congratulations !
-# 
-# Congratulations on completing this assignment. You now understand how recurrent neural networks work! 
-# 
-# Lets go on to the next exercise, where you'll use an RNN to build a character-level language model.
-# 
-
-# In[ ]:
-
-
-
