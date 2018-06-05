@@ -2,9 +2,6 @@
 # coding: utf-8
 
 # # Building your Recurrent Neural Network - Step by Step
-# 
-# Welcome to Course 5's first assignment! In this assignment, you will implement your first Recurrent Neural Network in numpy.
-# 
 # Recurrent Neural Networks (RNN) are very effective for Natural Language Processing and other sequence tasks because they have "memory". They can read inputs $x^{\langle t \rangle}$ (such as words) one at a time, and remember some information/context through the hidden layer activations that get passed from one time-step to the next. This allows a uni-directional RNN to take information from the past to process later inputs. A bidirection RNN can take context from both the past and the future. 
 # 
 # **Notation**:
@@ -23,8 +20,6 @@
 # We assume that you are already familiar with `numpy` and/or have completed the previous courses of the specialization. Let's get started!
 
 # Let's first import all the packages that you will need during this assignment.
-
-# In[66]:
 
 import numpy as np
 from rnn_utils import *
@@ -61,10 +56,6 @@ from rnn_utils import *
 # 4. Return $a^{\langle t \rangle}$ , $y^{\langle t \rangle}$ and cache
 # 
 # We will vectorize over $m$ examples. Thus, $x^{\langle t \rangle}$ will have dimension $(n_x,m)$, and $a^{\langle t \rangle}$ will have dimension $(n_a,m)$. 
-
-# In[67]:
-
-# GRADED FUNCTION: rnn_cell_forward
 
 def rnn_cell_forward(xt, a_prev, parameters):
     """
@@ -106,7 +97,6 @@ def rnn_cell_forward(xt, a_prev, parameters):
     return a_next, yt_pred, cache
 
 
-# In[68]:
 
 np.random.seed(1)
 xt = np.random.randn(3,10)
@@ -456,7 +446,6 @@ def lstm_cell_forward(xt, a_prev, c_prev, parameters):
     return a_next, c_next, yt_pred, cache
 
 
-# In[86]:
 
 np.random.seed(1)
 xt = np.random.randn(3,10)
